@@ -1,0 +1,19 @@
+div.ingredient-group{
+  margin: 0 10px;
+}
+
+div.grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+span.validationError {
+  color: red;
+}
