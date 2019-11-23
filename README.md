@@ -11,3 +11,8 @@
     * 参考
         * [Stack Overflow](https://stackoverflow.com/a/45640726)
         * [mykong](https://www.mkyong.com/spring-boot/intellij-idea-spring-boot-template-reload-is-not-working/)
+        
+* LiveReload插件安装
+    * Firefox插件链接失效
+    * Chrome安装，需要点击使图标中心变为实心点
+        * Site Access需要设置为On all sites或者On specific sites，On Click会报错
