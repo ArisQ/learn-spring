@@ -24,6 +24,8 @@
     * JDBC URL: ``jdbc:h2:mem:testdb``
     * 其他默认
     
+* 输入符合信用卡Credit Card Number验证的值比较麻烦，可以用 http://www.getcreditcardnumbers.com/ 生成
+
 * 书中很多地方讲解不完整需要自行解决才能顺利运行
     * 参考 https://github.com/habuma/spring-in-action-5-samples
     * google & stack overflow
