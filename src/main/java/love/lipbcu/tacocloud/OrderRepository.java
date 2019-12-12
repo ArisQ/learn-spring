@@ -1,7 +1,6 @@
 package love.lipbcu.tacocloud;
 
-public interface OrderRepository {
+import org.springframework.data.repository.CrudRepository;
 
-    Order save(Order order);
-
+public interface OrderRepository extends CrudRepository<Order, Long> {
 }

@@ -1,11 +1,6 @@
 package love.lipbcu.tacocloud;
 
-public interface IngredientRepository {
+import org.springframework.data.repository.CrudRepository;
 
-    Iterable<Ingredient> findAll();
-
-    Ingredient findOne(String id);
-
-    Ingredient save(Ingredient ingredient);
-
+public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 }

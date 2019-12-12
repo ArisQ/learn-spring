@@ -29,3 +29,13 @@
 * 书中很多地方讲解不完整需要自行解决才能顺利运行
     * 参考 https://github.com/habuma/spring-in-action-5-samples
     * google & stack overflow
+
+* JPA domain-specific language (DSL)
+    * verb+\[subject\]+By+predicate
+    * findByDeliveryZip()
+    * readOrdersByDeliveryZipAndPlacedAtBetween()
+    * many operators
+    
+* JdbcTemplate切换到JPA注意事项
+    * 需要删除schema.sql和data.sql
+    * 需要执行clean，否则构建后的sql文件不会被清除，会导致执行错误
