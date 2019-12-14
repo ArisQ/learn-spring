@@ -13,6 +13,11 @@
 <img th:src="@{/images/TacoCloud.png}"/>
 
 <form method="POST" th:object="${design}">
+    <!--
+    disabled for h2-console
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+    -->
+
     <span class="validationError"
           th:if="${#fields.hasErrors('ingredients')}"
           th:errors="*{ingredients}">

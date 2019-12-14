@@ -39,3 +39,18 @@
 * JdbcTemplate切换到JPA注意事项
     * 需要删除schema.sql和data.sql
     * 需要执行clean，否则构建后的sql文件不会被清除，会导致执行错误
+
+* Spring Security
+    * User store
+        * in memory
+        * database
+        * LDAP, TODO: LDAP暂时忽略
+    * register
+    * login
+    * logout
+    * WebSecurityConfigurerAdapter 
+    * User & UserRepository
+    * UserDetailsService
+    * Controller中确定User
+        * Authentication @AuthenticationPrincipal Principal
+    

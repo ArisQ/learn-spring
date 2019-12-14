@@ -62,4 +62,7 @@ public class Order {
     void placeAt() {
         this.placedAt = new Date();
     }
+
+    @ManyToOne
+    private User user;
 }
