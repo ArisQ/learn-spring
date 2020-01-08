@@ -53,4 +53,9 @@
     * UserDetailsService
     * Controller中确定User
         * Authentication @AuthenticationPrincipal Principal
-    
+
+* JPA utf-8 设置
+    * MySQL charset需要设置为utf-8，见[start-mysql.sh](start-mysql.sh)
+    * spring.datasource.url需要设置为``jdbc:mysql://localhost:13306/tacocloud?useUnicode=yes&characterEncoding=utf-8``
+    * MySQL charset设置为utf8mb4会报错，字符串类型的primary key提示key too long，最大为767bytes，待解决
+        * 原因varchar(255)，utf8mb4为4字节

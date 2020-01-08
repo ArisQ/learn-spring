@@ -45,4 +45,13 @@ public class OrderController {
         sessionStatus.setComplete();
         return "redirect:/";
     }
+
+    @GetMapping
+    public String ordersForUser(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute(
+                "orders",
+                orderRepository.findByUserOrderByPlacedAtDesc(user)
+        );
+        return "orderList";
+    }
 }

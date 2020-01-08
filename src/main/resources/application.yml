@@ -1,0 +1,21 @@
+server:
+  port: 9090
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    properties.hibernate:
+      dialect: org.hibernate.dialect.MySQL55Dialect
+      connection:
+        CharSet: UTF-8
+        characterEncoding: UTF-8
+        useUnicode: true
+  datasource:
+    url: jdbc:mysql://localhost:13306/tacocloud?useUnicode=yes&characterEncoding=utf-8
+    username: tacodb
+    password: tacopassword
+logging:
+  level:
+    root: WARN
+    love.lipbcu.taco: DEBUG
+
+
