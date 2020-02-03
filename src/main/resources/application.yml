@@ -18,6 +18,4 @@ logging:
     root: WARN
     love.lipbcu.taco: DEBUG
 love.lipbcu.taco:
-  orders.pageSize: 3
-
-
+  orders.pageSize: 5
