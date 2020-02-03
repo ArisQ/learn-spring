@@ -59,3 +59,42 @@
     * spring.datasource.url需要设置为``jdbc:mysql://localhost:13306/tacocloud?useUnicode=yes&characterEncoding=utf-8``
     * MySQL charset设置为utf8mb4会报错，字符串类型的primary key提示key too long，最大为767bytes，待解决
         * 原因varchar(255)，utf8mb4为4字节
+
+* Configuration
+    * application.yml/application.properties
+    * properties metadata: ``src/resource/META-INF/additional-spring-configuration-metadata.json``
+    * 生产环境和开发环境配置
+        * 环境变量
+            ```shell
+            export SPRING_DATASOURCE_URL=jdbc:mysql://localhost/tacocloud
+            export SPRING_DATASOURCE_USRERNAME=tacouser
+            export SPRING_DATASOURCE_PASSWORD=tacopassword
+            ```
+        * profile
+            * 使用``application-{profile name}.yml`` or ``application-{profile name}.properties``文件
+                * ``application-prod.yml``
+            * yml文件特有方法，使用``---``分隔，并指定spring.profiles
+                ```yaml
+                ---
+                spring:
+                  profiles: prod
+                ```
+            * activating profiles
+                * ``spring.profiles.active`` (worst way)
+                  ```yaml
+                  spring:
+                    profiles:
+                      active:
+                        - prod
+                        - audit
+                        - ha
+                  ```
+                * 环境变量 ``SPRING_PROFILES_ACTIVE=prod,audit,ha``
+                * 命令行参数 ``java -jar taco-cloud.jar --spring.profiles.active=prod``
+                * Cloud Foundry会自动激活cloud profile               
+        * 根据profile有条件地创建bean
+            * ``@Profile``
+            * ``@Profile("dev")``
+            * ``@Profile("dev", "qa")`` dev或qa
+            * ``@Profile("!prod", "!qa")`` prod与qa都没有被激活
+              
