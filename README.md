@@ -97,4 +97,8 @@
             * ``@Profile("dev")``
             * ``@Profile("dev", "qa")`` dev或qa
             * ``@Profile("!prod", "!qa")`` prod与qa都没有被激活
-              
+* REST API
+    * ``@GetMapping @PostMapping @PutMapping @PatchMapping @DeleteMapping @RequestMapping``              
+    * ``@RequestMapping(path="/", produces="application/json") @RequestMapping(path="/", produces={"application/json","text/xml"})``
+    * ``@CrossOrigin(origins="*")``
+
