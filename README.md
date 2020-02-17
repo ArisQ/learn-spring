@@ -101,4 +101,19 @@
     * ``@GetMapping @PostMapping @PutMapping @PatchMapping @DeleteMapping @RequestMapping``              
     * ``@RequestMapping(path="/", produces="application/json") @RequestMapping(path="/", produces={"application/json","text/xml"})``
     * ``@CrossOrigin(origins="*")``
+    * ``@PathVariable @RequestBody``
+    * ``consumes="application/json"``
+    
+* HATEOAS(Hypermedia as the Engine of Application State)
+    * 书中不一致的地方，参考[Migrating to Spring HATEOAS 1.0](https://docs.spring.io/spring-hateoas/docs/current/reference/html/#migrate-to-1.0)
+        * ResourceSupport -> RepresentationModel
+        * Resource -> EntityModel
+        * Resources -> CollectionModel
+        * PagedResources -> PagedModel
+    * Deprecated
+        * ControllerLinkBuilder -> WebMvcLinkBuilder
+    * Resource Assembler
+        * hateoas版本更新导致的书中不一致
+            * ResourceAssemblerSupport -> RepresentationModelAssemblerSupport
+            * toResource -> toModel
 
