@@ -1,14 +1,14 @@
 package love.lipbcu.tacocloud.hateoas;
 
 import lombok.Getter;
-import love.lipbcu.tacocloud.Ingredient;
 import love.lipbcu.tacocloud.Taco;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
 
 import java.util.Date;
-import java.util.List;
 
+@Relation(value = "taco", collectionRelation = "tacos")
 public class TacoResource extends RepresentationModel<TacoResource> {
     private static final IngredientResourceAssembler ingredientAssembler = new IngredientResourceAssembler();
 
