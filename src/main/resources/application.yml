@@ -13,6 +13,9 @@ spring:
     url: jdbc:mysql://localhost:13306/tacocloud?useUnicode=yes&characterEncoding=utf-8
     username: tacodb
     password: tacopassword
+  data:
+    rest:
+      base-path: /data
 logging:
   level:
     root: WARN

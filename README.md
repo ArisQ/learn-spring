@@ -116,4 +116,11 @@
         * hateoas版本更新导致的书中不一致
             * ResourceAssemblerSupport -> RepresentationModelAssemblerSupport
             * toResource -> toModel
+    * ``@Relation(value="taco", collectionRelation="tacos")``
+    
+* Spring Data REST
+    * ``spring.data.rest.base-path: /api``
+    * 直接访问base path可以查看可用的url
+    * ``RepositoryRestController``
+    * ResourceProcessor -> RepresentationModelProcessor
 
