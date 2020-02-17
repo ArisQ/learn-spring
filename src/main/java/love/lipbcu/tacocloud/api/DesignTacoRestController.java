@@ -25,6 +25,12 @@ public class DesignTacoRestController {
         this.tacoRepository = tacoRepository;
     }
 
+    @PostMapping(consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Taco postTaco(@RequestBody Taco taco) {
+        return tacoRepository.save(taco);
+    }
+
     @GetMapping("/recent")
     public Iterable<Taco> recentTacos() {
         PageRequest page = PageRequest.of(0, 12, Sort.by("createdAt").descending());
