@@ -3,6 +3,7 @@ docker run \
 -d \
 --name mysql \
 -p 13306:3306 \
+-v $PWD/mysql_volume:/var/lib/mysql \
 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
 -e MYSQL_DATABASE=tacocloud \
 -e MYSQL_USER=tacodb \
