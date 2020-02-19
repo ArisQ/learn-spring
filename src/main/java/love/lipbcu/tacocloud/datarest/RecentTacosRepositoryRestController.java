@@ -32,11 +32,12 @@ public class RecentTacosRepositoryRestController {
     }
 
     @GetMapping(path = "/tacos/recent", produces = "application/hal+json")
-    public ResponseEntity<CollectionModel<TacoResource>> recentTacos() {
+    public ResponseEntity<CollectionModel<EntityModel<Taco>>> recentTacos() {
         PageRequest page = PageRequest.of(0, 12, Sort.by("createdAt").descending());
         List<Taco> tacos = tacoRepository.findAll(page).getContent();
-        CollectionModel<TacoResource> recentResources = new TacoResourceAssembler().toCollectionModel(tacos);
-        recentResources.add(linkTo(methodOn(RecentTacosRepositoryRestController.class).recentTacos()).withRel("recents"));
+//        CollectionModel<TacoResource> recentResources = new TacoResourceAssembler().toCollectionModel(tacos);
+        CollectionModel<EntityModel<Taco>> recentResources = CollectionModel.wrap(tacos);
+//        recentResources.add(linkTo(methodOn(RecentTacosRepositoryRestController.class).recentTacos()).withRel("recents")); //ERROR: 没有包含DataREST的base url
         return new ResponseEntity<>(recentResources, HttpStatus.OK);
     }
 

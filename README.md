@@ -131,5 +131,11 @@
         * url+按顺序给定placeholder
         * ulr+Map
         * UriComponents
+        
+* Traverson
+    * ``follow toObject asLink getHref``
+    * ParameterizedTypeReference
+    * 只能浏览不能POST/PUT/DELETE，如果需要，需要使用RestTemplate
+    * **TODO: Traverson如何处理通过ResourceAssembler保证的嵌套数据**
 
 
