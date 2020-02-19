@@ -123,4 +123,13 @@
     * 直接访问base path可以查看可用的url
     * ``RepositoryRestController``
     * ResourceProcessor -> RepresentationModelProcessor
+    
+* RestTemplate
+    * 41 methods: ``delete getForEntity getForObject headForHeaders optionsForAllow patchForObject postForEntity postForLocation postForObject put``
+        * Object/Entity(ResponseEntity)
+    * 三种方式
+        * url+按顺序给定placeholder
+        * ulr+Map
+        * UriComponents
+
 
