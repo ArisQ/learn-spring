@@ -137,5 +137,25 @@
     * ParameterizedTypeReference
     * 只能浏览不能POST/PUT/DELETE，如果需要，需要使用RestTemplate
     * **TODO: Traverson如何处理通过ResourceAssembler保证的嵌套数据**
+    * **TODO: linkTo/methodOn如何处理RepositoryRestController的base url**
 
+* asynchronous message
+    * ActiveMQ/Artemis
+        * ``spring.artemis.host/port/user/password``
+        * ``spring.activemq.broker-url/user/password/in-memory``
+        * 打开 [http://127.0.0.1:8161](http://127.0.0.1:8161 ) 查看Management Console
+    * JmsTemplate
+        * 发送消息
+            * send MessageCreator
+            * convertAndSend Object MessagePostProcessor
+            * 指定目标 default/Destination/String
+        * ``spring.jms.template.default-destination: tacocloud.order.queue``
+        * MessageConverter (toMessage fromMessage)
+            * MappingJackson2MessageConverter
+                * 从org.springframework.jms.support.converter而不是org.springframework.messaging.converter导入
+                * setTypeIdPropertyName setTypeIdMappings
+            * MarshallingMessageConverter
+            * MessagingMessageConverter
+            * SimpleMessageConverter，default，需要对象实现Serializable
+        * MessagePostProcessor
 
