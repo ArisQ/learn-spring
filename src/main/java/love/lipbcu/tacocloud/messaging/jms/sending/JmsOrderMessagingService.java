@@ -1,7 +1,9 @@
 package love.lipbcu.tacocloud.messaging.jms.sending;
 
 import love.lipbcu.tacocloud.Order;
+import love.lipbcu.tacocloud.messaging.OrderMessagingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.jms.core.JmsTemplate;
 
@@ -9,6 +11,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 
 @Service
+@Qualifier("jms")
 public class JmsOrderMessagingService implements OrderMessagingService {
     private JmsTemplate jms;
 

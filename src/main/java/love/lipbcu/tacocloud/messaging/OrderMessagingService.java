@@ -1,4 +1,4 @@
-package love.lipbcu.tacocloud.messaging.jms.sending;
+package love.lipbcu.tacocloud.messaging;
 
 import love.lipbcu.tacocloud.Order;
 

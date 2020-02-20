@@ -164,4 +164,15 @@
                 * receive Message
                 * receiveAndConvert Object
             * push model ``@JmsListener``
+    * RabbitMQ/AMQP
+        * exchange / routing key
+        * Sender Exchange Binding Queue Receiver
+        * Default/Direct/Topic/Fanout/Headers/Dead letter
+        * *RabbitMQ in Action* by Alvaro Videla & Jason J.W. Williams
+        * ``spring.rabbitmq.addresses/host/port/username/password``
+        * RabbitTemplate
+        * 发送消息
+            * send convertAndSend
+            * Message exchange routingKey  MessagePostProcessor
+        * ``@Qualifier``
 

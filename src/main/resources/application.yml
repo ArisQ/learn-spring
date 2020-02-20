@@ -24,6 +24,14 @@ spring:
   jms:
     template:
       default-destination: tacocloud.order.queue
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: tacoweb
+    password: 13tm31n
+    # template:
+      # exchange: tacocloud.orders
+      # routing-key: kitchens.central
 logging:
   level:
     root: WARN
