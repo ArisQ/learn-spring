@@ -1,5 +1,6 @@
 package love.lipbcu.tacocloud;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,8 +33,9 @@ public class User implements UserDetails {
     private final String zip;
     private final String phoneNumber;
 
+    @JsonIgnore
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public final Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 

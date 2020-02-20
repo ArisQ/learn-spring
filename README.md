@@ -158,4 +158,10 @@
             * MessagingMessageConverter
             * SimpleMessageConverter，default，需要对象实现Serializable
         * MessagePostProcessor
+        * 接收消息
+            * model: pull model/push model
+            * pull model
+                * receive Message
+                * receiveAndConvert Object
+            * push model ``@JmsListener``
 

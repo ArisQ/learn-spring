@@ -2,9 +2,7 @@ package love.lipbcu.tacocloud.messaging.jms.sending;
 
 import love.lipbcu.tacocloud.Order;
 import love.lipbcu.tacocloud.OrderRepository;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +14,12 @@ import java.util.Optional;
 @RequestMapping(path = "/msg/jms/sending", produces = "text/plain")
 public class JmsSendingController {
 
-    private final JmsOrderMessagingService jmsOrderMessagingService;
+    private final OrderMessagingService orderMessagingService;
     private final OrderRepository orderRepository;
 
     @Autowired
-    public JmsSendingController(JmsOrderMessagingService jmsOrderMessagingService, OrderRepository orderRepository) {
-        this.jmsOrderMessagingService = jmsOrderMessagingService;
+    public JmsSendingController(OrderMessagingService orderMessagingService, OrderRepository orderRepository) {
+        this.orderMessagingService = orderMessagingService;
         this.orderRepository = orderRepository;
     }
 
@@ -31,7 +29,7 @@ public class JmsSendingController {
         if (!optionalOrder.isPresent())
             return "order not found";
         Order order = optionalOrder.get();
-        jmsOrderMessagingService.sendOrder(order);
+        orderMessagingService.sendOrder(order);
         return String.format("success %s", order.toString());
     }
 }
