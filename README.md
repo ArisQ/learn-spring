@@ -175,4 +175,11 @@
             * send convertAndSend
             * Message exchange routingKey  MessagePostProcessor
         * ``@Qualifier``
+        * 接收消息
+            * pulling(``RabbitTemplate``)  listener(``@RabbitListener``)
+            * RabbitTemplate receiving
+                * receive Message
+                * receiveAndConvert Object/ParameterizedTypeReference
+                * 参数：queueName/timeoutMillis
+        * **TODO: 如何处理同时使用Jms和RabbitMQ时，都需要注入MessageConverter，但Bean不能重名的问题**
 

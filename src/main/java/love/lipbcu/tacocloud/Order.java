@@ -1,5 +1,6 @@
 package love.lipbcu.tacocloud;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 

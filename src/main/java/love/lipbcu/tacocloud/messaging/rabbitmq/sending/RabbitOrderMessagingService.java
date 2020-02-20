@@ -1,4 +1,4 @@
-package love.lipbcu.tacocloud.messaging.rabbitmq;
+package love.lipbcu.tacocloud.messaging.rabbitmq.sending;
 
 import love.lipbcu.tacocloud.Order;
 import love.lipbcu.tacocloud.messaging.OrderMessagingService;
@@ -6,6 +6,7 @@ import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class RabbitOrderMessagingService implements OrderMessagingService {
         Message message = converter.toMessage(order, props);
         rabbit.send("tacocloud.order", message);
          */
-        rabbit.convertAndSend("tacocloud.order", order, this::addOrderSource);
+        rabbit.convertAndSend("tacocloud.order.queue", order, this::addOrderSource);
     }
 
     private Message addOrderSource(Message message) throws AmqpException {

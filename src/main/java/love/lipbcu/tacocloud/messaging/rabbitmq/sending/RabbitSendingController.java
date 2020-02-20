@@ -1,4 +1,4 @@
-package love.lipbcu.tacocloud.messaging.rabbitmq;
+package love.lipbcu.tacocloud.messaging.rabbitmq.sending;
 
 import love.lipbcu.tacocloud.Order;
 import love.lipbcu.tacocloud.OrderRepository;
