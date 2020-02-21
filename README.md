@@ -181,7 +181,8 @@
                 * receive Message
                 * receiveAndConvert Object/ParameterizedTypeReference
                 * 参数：queueName/timeoutMillis
-        * **TODO: 如何处理同时使用Jms和RabbitMQ时，都需要注入MessageConverter，但Bean不能重名的问题**
+        * 如何处理同时使用Jms和RabbitMQ时，都需要注入MessageConverter，但Bean不能重名的问题
+            * 没有问题，只是jms和rabbitmq配置时都使用了同名的MessagingConfig的Configuration导致的Bean重复
     * Kafka
         * Kafka启动，见[start-kafka.sh](start-kafka.sh)和[docker-compose.kafka.yml](docker-compose.kafka.yml)，采用单broker，多broker端口会变化需要修改配置文件
         * 通用配置 ``spring.kafka.bootstrap-servers/template.default-topic``
