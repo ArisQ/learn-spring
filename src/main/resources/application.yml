@@ -33,6 +33,21 @@ spring:
       receive-timeout: 3000
       # exchange: tacocloud.orders
       # routing-key: kitchens.central
+  kafka:
+    bootstrap-servers:
+      - 127.0.0.1:9092
+      # - 127.0.0.1:32786
+      # - 127.0.0.1:32787
+    template:
+      default-topic: tacocloud.orders.topic
+    producer:
+      keySerializer: org.springframework.kafka.support.serializer.JsonSerializer
+      valueSerializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: test-consumer-group
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: love.lipbcu.tacocloud
 logging:
   level:
     root: WARN

@@ -182,4 +182,17 @@
                 * receiveAndConvert Object/ParameterizedTypeReference
                 * 参数：queueName/timeoutMillis
         * **TODO: 如何处理同时使用Jms和RabbitMQ时，都需要注入MessageConverter，但Bean不能重名的问题**
+    * Kafka
+        * Kafka启动，见[start-kafka.sh](start-kafka.sh)和[docker-compose.kafka.yml](docker-compose.kafka.yml)，采用单broker，多broker端口会变化需要修改配置文件
+        * 通用配置 ``spring.kafka.bootstrap-servers/template.default-topic``
+        * 发送消息
+            * ``ListenableFuture<SendResult<K,V>> send(String topic, Integer partition, Long timestamp, K key, V data)`` & 去除部分参数
+            * ``ListenableFuture<SendResult<K,V>> send(ProducerRecord<K,V> record)``
+            * ``ListenableFuture<SendResult<K,V>> send(Message<?> message)``
+            * ``ListenableFuture<SendResult<K,V>> sendDefault(Integer partition, Long timestamp, K key, V data)`` & 去除部分参数
+            * 配置 ``producer.keySerializer/valueSerializer``
+        * 接收消息
+            * ``@KafkaListener`` 
+            * ``Order ConsumerRecord<Order> Message<Order>``
+            * 配置 ``consumer.group-id/value-deserializer/properties(spring.json.trusted.packages)``
 
