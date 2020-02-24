@@ -1,4 +1,4 @@
-package love.lipbcu.tacocloud.integration;
+package love.lipbcu.tacocloud.integration.filewriter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

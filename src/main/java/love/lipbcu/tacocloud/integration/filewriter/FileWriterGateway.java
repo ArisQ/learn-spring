@@ -1,4 +1,4 @@
-package love.lipbcu.tacocloud.integration;
+package love.lipbcu.tacocloud.integration.filewriter;
 
 import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.file.FileHeaders;

@@ -48,10 +48,23 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: love.lipbcu.tacocloud
+#  main:
+#    web-application-type: none
 logging:
   level:
     root: WARN
     love.lipbcu.taco: DEBUG
     love.lipbcu.tacocloud: DEBUG
-love.lipbcu.taco:
+    org.springframework.integration.spring-integration-mail: DEBUG
+    javax.mail: DEBUG
+love.lipbcu.tacocloud:
   orders.pageSize: 5
+  email:
+    host: imap.163.com
+    mailbox: INBOX
+    username: tacocloud
+    password: 1L0v3T4c0s
+    poll-rate: 5000
+  api:
+    url: http://localhost:9090/api/orders
+

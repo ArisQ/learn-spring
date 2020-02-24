@@ -9,7 +9,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Component
-@ConfigurationProperties(prefix = "love.lipbcu.taco.orders")
+@ConfigurationProperties(prefix = "love.lipbcu.tacocloud.orders")
 @Data
 @Validated
 public class OrderProps {

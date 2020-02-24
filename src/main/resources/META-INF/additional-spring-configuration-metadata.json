@@ -1,7 +1,7 @@
 {
     "properties": [
         {
-            "name": "love.lipbcu.taco.orders.page-size",
+            "name": "love.lipbcu.tacocloud.orders.page-size",
             "type": "java.lang.String",
             "description": "Sets the maximum number of orders to display in a list."
         }

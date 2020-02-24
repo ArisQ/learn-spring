@@ -205,6 +205,14 @@
         * XML ``@ImportResource("classpath:/filewriter-config.xml")``
         * Java ``@Transformer @ServiceActivator`` 会自动创建channel
         * Java with a DSL ``IntegrationFlow IntegrationFlows ``
-    * 
+    * *Channels, Filters, Transformers, Routers, Splitters, Aggregators, Service activators, Channel adapters, Gateways*
+        * Channel: PublishSubscribeChannel QueueChannel PriorityChannel RendezvousChannel DirectChannel ExecutorChannel FluxMessageChannel
+    * Endpoint Modules: AMQP, Spring application events, RSS and Atom, FileSystem, FTP/FTPS, GemFire, HTTP, JDBC, JMS, Email, MongoDB, MQTT, Redis, RMI, SFTP, STOMP, Stream, Syslog, TCP/UDP, Twitter, Web Services, WebFlux, WebSocket, XMPP, ZooKeeper
+    * 需要引入javax.mail
+    * ``org.apache.commons.text.similarity.LevenshteinDistance``
+    * ``AbstractMailMessageTransfomer AbstractIntegrationMessageBuilder GenericHandler``
+    * spring.main.web-application-type: none/servlet/reactive
+    * 需要邮箱中有未读邮件，且收取后会设为已读
+    
     
 
