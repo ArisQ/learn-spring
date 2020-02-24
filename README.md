@@ -197,3 +197,14 @@
             * ``Order ConsumerRecord<Order> Message<Order>``
             * 配置 ``consumer.group-id/value-deserializer/properties(spring.json.trusted.packages)``
 
+* Spring Integration
+    * *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf
+    * File System
+    * ``@MessagingGateway @Header(FileHeaders.FILENAME)``
+    * 3中配置方法
+        * XML ``@ImportResource("classpath:/filewriter-config.xml")``
+        * Java ``@Transformer @ServiceActivator`` 会自动创建channel
+        * Java with a DSL ``IntegrationFlow IntegrationFlows ``
+    * 
+    
+
