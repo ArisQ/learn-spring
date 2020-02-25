@@ -214,5 +214,65 @@
     * spring.main.web-application-type: none/servlet/reactive
     * 需要邮箱中有未读邮件，且收取后会设为已读
     
-    
+* Reactive Spring
+    * Imperative vs Reactive
+    * Reactive Stream
+        * Publisher Subscriber Subscription Processor
+        * ```java
+          public interface Publisher<T> {
+              void subscribe(Subscriber<? super T> subscriber);
+          }
+          public interface Subscriber<T> {
+              void onSubscribe(Subscription sub);
+              void onNext(T item);
+              void onError(Throwable ex);
+              void onComplete();
+          }
+          public interface Subscription{
+              void request(long n);
+              void cancel();
+          }
+          public interface Processor<T,R> extends Subscriber<T>, Publisher<R> {}
+          ```
+    * Reactor
+        * 2 Core types: （都实现了Publisher）
+            * Mono：不超过1个数据，``just() map() subscribe()``
+            * Flux：0或1或多个（可能无限个）数据
+        * RxJava/ReactiveX (Flux Mono 对应 Observable Single)
+        * Mable Diagram
+        * operations分类
+            * Creation operations
+                * just()
+                * fromArray()
+                * fromIterable()
+                * fromStream() Java Stream 
+                * range()
+                * interval()
+            * Combination operations
+                * mergeWith()
+                * zip() Tuple2/Object(传入函数，如``(c,f)-> c+" eats " + f``)
+                * first() 选择先产生数据的Flux
+            * Transformation operations
+                * skip() 跳过前n个数据，或若干时间
+                * take() 取前n个数据，或若干时间
+                * filter()
+                * distinct()
+                * map() 同步转换
+                * flatMap() 可以实现异步转换
+                    * subscribeOn()
+                        * Schedulers
+                            * immediate()
+                            * single()
+                            * newSingle()
+                            * elastic()
+                            * parallel()
+                * buffer(n)
+                * buffer() collectList()
+                * collectMap()
+            * Logic operations
+                * all()
+                * any()
+            * log()
+        * 没有Subscriber，数据不会flow
+        * StepVerifier
 
