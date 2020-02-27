@@ -276,3 +276,45 @@
         * 没有Subscriber，数据不会flow
         * StepVerifier
 
+
+* WebFlux (a reactive web framework for Spring) (参考webflux分支)
+    * asynchronous web framework, event looping
+    * | Spring MVC Stack                  | WebFlux Stack                                  |
+      | --------------------------------- | ---------------------------------------------- |
+      | @Controller, @RequestMapping, etc | Router functions                               |
+      | Spring MVC                        | Spring WebFlux                                 |
+      | Servlet API                       | Reactive HTTP                                  |
+      | Servlet Container                 | Tomcat, Jetty, Serverlet 3.1+, Netty, UnderTow |
+    * RxJava: Observable Single Completable(=Mono<Void>) Flowable
+    * functional programming model
+        * RequestPredicate
+        * RouterFunction
+        * ServerRequest
+        * ServerResponse
+    * ``route() ok() body() addRoute()``
+    * test
+        * WebTestClient    get/post/put/patch/delete/head
+        * 集成测试 ``@RunWIth @SpringBootTest``
+    * Consuming
+        * WebClient
+    * Security
+        * Spring Security从5.0.0开始，不依赖于servlet API
+        * @EnableWebFluxSecurity    SecurityWebFilterChain
+        * ReactiveUserDetailService
+* Persisting data reactively
+    * Cassandra MongoDB Couchbase Redis
+    * reactive不支持JPA/关系型数据库
+    * ``Flux<Ingredient> findByType (Ingredient.Type type)``
+    * ``<Taco> Flux<Taco> saveAll(Publisher<Taco> tacoPublisher)``
+    * reactive/non-reactive 转换
+        * ``Flux.fromIterable() Mon.just()    mono.block() flux.toIterable()``
+        * ``subscribe()``
+    * Spring Data Cassandra
+        * spring-boot-starter-data-cassandra/spring-boot-starter-data-cassandra-reactive
+        * spring.data.cassandra.keyspace-name/schema-action/contact-points/port/username/password
+    * Spring Data MongoDB
+        * spring-boot-starter-data-mongodb/spring-boot-starter-data-mongodb-reactive
+        * spring.data.mongodb.host/port/username/password/database
+        * ``@Id @Document @Field``
+        * ReactiveCrudRepository/ReactiveMongoRepository
+
